@@ -24,7 +24,13 @@ colcon build
 source install/setup.bash  # Или setup.zsh - в зависимости от вашего интерпретатора командной строки
 ```
 3. **В зависимости от цели (см. пункт ниже), которую Вы хотите решить, установите необходимые репозитории (инструкция находится внутри репозитория)**.
-4. **Пример запуска**
+4. Добавить `source` в `~/.bashrc`:
+Зачем? - Чтобы не делать при каждом перезапуске терминала `source install.setup.bash`. Скрипт генерирует строчку для автоматизации этого процесса.
+```bash
+line_to_add="source \"$(pwd)/install/setup.bash\""
+grep -qxF "$line_to_add" ~/.bashrc || echo "$line_to_add" >> ~/.bashrc
+```
+5. **Пример запуска**
 ```bash
 ros2 launch meta_launch teleoperation_with_hands_launch.py
 ```
