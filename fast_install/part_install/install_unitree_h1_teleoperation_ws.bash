@@ -1,5 +1,5 @@
 start_path=$(pwd)
-cd ../..
+cd ../../../..
 mkdir -p unitree_h1_teleoperation_ws/src
 cd unitree_h1_teleoperation_ws/src
 git clone https://github.com/cyberbanana777/unitree_h1_teleoperation_ws.git .

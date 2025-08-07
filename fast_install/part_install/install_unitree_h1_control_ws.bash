@@ -1,5 +1,5 @@
 start_path=$(pwd)
-cd ../..
+cd ../../../..
 mkdir -p unitree_h1_control_ws/src
 cd unitree_h1_control_ws/src
 git clone https://github.com/cyberbanana777/unitree_h1_control_ws.git .
