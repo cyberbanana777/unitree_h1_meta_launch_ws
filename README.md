@@ -33,7 +33,7 @@ grep -qxF "$line_to_add" ~/.bashrc || echo "$line_to_add" >> ~/.bashrc
 ```
 5. **Пример запуска**
 ```bash
-ros2 launch meta_launch teleoperation_with_hands_launch.py
+ros2 launch meta_launch_package teleoperation_with_hands_launch.py
 ```
 
 ## 📂 Какие репозитории установить:
@@ -81,8 +81,12 @@ cd complex_install/part_install
 | Телеуправление роботом Unitree H1 с помощью Устройства Копирующего Типа (УКТ) от НПО "Андроидная техника" | Телеуправление роботом Unitree H1 в комплектации **без кистей** с помощью УКТ. | `ros2 launch meta_launch_package teleoperation_without_hands_launch.py`  |
 |                                                                                                           |                                                                                |                                                                          |
 
-## 🗺️ Архитектура 
-Диаграмма взаимодействия будет представлена тут.
+## 🗺️ Архитектура
+Здесь представлены скрины из rqt_graph при различных запущенных сценариях.
+### teleoperation_with_hands_launch
+![teleoperation_with_hands](docs/meta_launch_teleoperation_with_hands.png)
+### teleoperation_without_hands_launch
+![teleoperation_without_hands](docs/meta_launch_teleoperation_without_hands.png)
 
 ## Предложения и корректировки
 Если Вы нашли, ошибку, неточность, у Вас есть предложения по улучшению или вопросы, то напишите в телеграмм [сюда](https://t.me/Alex_19846) (Александр) или [сюда](https://t.me/Kika_01) (Алиса).
