@@ -62,7 +62,7 @@ ros2 launch meta_launch_package teleoperation_with_hands_launch.py
 |---|---|
 |Телеуправление роботом Unitree H1 с помощью Устройства Копирующего Типа (УКТ) от НПО "Андроидная техника"|[unitree_h1_control_ws](https://github.com/cyberbanana777/unitree_h1_control_ws), [unitree_h1_teleoperation_ws](https://github.com/cyberbanana777/unitree_h1_teleoperation_ws)|
 
-Для быстрой установки мы создали bash-скрипты, которые устанавливают необходимые пакеты из репозиториев (отдельные work_space), зависимости к ним и собирают пакеты.
+Для быстрой установки мы создали bash-скрипты, которые устанавливают репозитории (которые являются work_space), зависимости к ним и собирают work_space'ы.
 ### **Скрипты которые устанавливают только один из репозиториев**
 Все скрипты, которые устанавливают один репозиторий (_ws) и зависимости к нему, лежат в папке `fast_install/part_install`.
 ```bash
