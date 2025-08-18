@@ -2,3 +2,4 @@ cd ../part_install
 
 bash install_unitree_h1_control_ws.bash
 bash install_unitree_h1_teleoperation_ws.bash
+bash install_unitree_h1_sensors_ws.bash
