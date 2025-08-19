@@ -81,7 +81,7 @@ bash install_unitree_h1_teleoperation_ws.bash
 ### **Скрипты которые устанавливают все репозиотрии для выбранного кейса**
 Все скрипты, которые устанавливают сразу несколько репозиториев (_ws), лежат в папке `fast_install/complex_install`.
 ```bash
-cd complex_install/part_install
+cd fast_install/complex_install
 ```
 Скрипт, который устанавливает все репозитории и зависимости для задачи телеуправления.
 ```bash
