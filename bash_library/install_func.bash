@@ -16,7 +16,6 @@ print_error() {
     exit 1
 }
 
-
 main_install_function() {
     # Главный заголовок
     echo -e "\n\033[1;35m======================================="
@@ -31,9 +30,33 @@ main_install_function() {
     print_status "Создаем рабочее пространство..."
     target_path="../../../.."
     mkdir -p "$target_path/$1/src" || print_error "Ошибка создания директорий"
-    cd "$target_path/$1/src" || print_error "Ошибка перехода в директорию"
 
-    print_success "Рабочее пространство создано: $(pwd)"
+    # Добавляем стартовый путь для updater-script в .bashrc
+    cd $target_path || print_error "Ошибка перехода в директорию"
+    print_status "Добавляем стартовый путь для updater-script в .bashrc..."
+    line_to_add="export UNITREE_REPOS_ROOT='$(pwd)'"
+    if ! grep -qxF "$line_to_add" ~/.bashrc; then
+        echo "$line_to_add" >> ~/.bashrc
+        print_success "Стартовый путь для updater-script добавлен в ~/.bashrc"
+    else
+        print_success "Стартовый путь для updater-script уже присутствует в ~/.bashrc"
+    fi
+
+    # Добавляем autosource для updater-script в .bashrc
+    print_status "Добавляем autosource для updater-script в .bashrc..."
+    line_to_add="source \"$(pwd)/unitree_h1_meta_launch_ws/src/bash_library/update_func.bash\""
+    if ! grep -qxF "$line_to_add" ~/.bashrc; then
+        echo "$line_to_add" >> ~/.bashrc
+        print_success "autosource для updater-script добавлен в ~/.bashrc"
+    else
+        print_success "autosource для updater-script уже присутствует в ~/.bashrc"
+    fi
+
+    # Переходим в рабочую директорию
+    cd "$1" || print_error "Ошибка перехода в директорию"
+    print_success "Рабочая директория успешно создана: $(pwd)"
+
+    cd "src" || print_error "Ошибка перехода в директорию"
 
     # Клонируем репозиторий
     print_status "Клонируем репозиторий..."
@@ -75,6 +98,11 @@ main_install_function() {
     # Возвращаемся в исходную директорию
     cd "$start_path" || print_error "Ошибка возврата в исходную директорию"
     unset start_path
+
+    # Перезапускаем .bashrc
+    print_status "Перезапускаем .bashrc..."
+    source ~/.bashrc || print_error "Ошибка выполнения .bashrc"
+    print_success "Перезапуск .bashrc успешно выполнен"
 
     # Финал
     echo -e "\n\033[1;35m======================================="
