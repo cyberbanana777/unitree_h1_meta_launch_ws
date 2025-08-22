@@ -68,7 +68,7 @@ main_install_function() {
     print_status "Устанавливаем зависимости..."
     if [ -f "install_dependensies.bash" ]; then
         chmod +x install_dependensies.bash
-        ./install_dependensies.bash || print_error "Ошибка установки зависимостей"
+        sudo ./install_dependensies.bash || print_error "Ошибка установки зависимостей"
         print_success "Зависимости успешно установлены"
     else
         print_error "Файл зависимостей не найден: install_dependensies.bash"

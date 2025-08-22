@@ -80,7 +80,12 @@ process_src_directory() {
     fi
     
     # Выполняем красочный git pull
-    git_pull_with_style
+    git_pull_with_style    
+
+    cd ..
+    rm -r build log install
+    colcon build
+    source install/setup.bash
 }
 
 
