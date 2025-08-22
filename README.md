@@ -70,11 +70,11 @@ cd fast_install/part_install
 ```
 Скрипт, который устанавливает [unitree_h1_control_ws](https://github.com/cyberbanana777/unitree_h1_control_ws)
 ```bash
-bash install_unitree_h1_control_ws.bash
+source install_unitree_h1_control_ws.bash
 ```
 Скрипт, который устанавливает [unitree_h1_teleoperation_ws](https://github.com/cyberbanana777/unitree_h1_teleoperation_ws)
 ```bash
-bash install_unitree_h1_teleoperation_ws.bash
+source install_unitree_h1_teleoperation_ws.bash
 ```
 <p align="right" style="margin-top: 20px;"><a href="#-оглавление" style="text-decoration: none;">🔝 Вернуться к оглавлению</a></p>
 
@@ -85,7 +85,7 @@ cd fast_install/complex_install
 ```
 Скрипт, который устанавливает все репозитории и зависимости для задачи телеуправления.
 ```bash
-bash teleoperation_case.bash
+source teleoperation_case.bash
 ```
 <p align="right" style="margin-top: 20px;"><a href="#-оглавление" style="text-decoration: none;">🔝 Вернуться к оглавлению</a></p>
 
