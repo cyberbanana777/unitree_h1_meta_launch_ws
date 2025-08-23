@@ -10,6 +10,10 @@
   <maintainer email="sashagrachev2005@gmail.com">banana-killer</maintainer>
   <license>MIT</license>
 
+  <depend>copmleted_scripts_teleoperation</depend>	
+  <depend>completed_scripts_control</depend>	
+  <depend>completed_scripts_point-by-point-programming</depend>	
+
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
