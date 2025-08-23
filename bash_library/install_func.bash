@@ -87,7 +87,7 @@ main_install_function() {
 
     # Добавляем в .bashrc
     print_status "Добавляем автонастройку в .bashrc..."
-    line_to_add="source \"$(pwd)/install/setup.bash\""
+    line_to_add="source \"$(pwd)/install/local_setup.bash\""
     if ! grep -qxF "$line_to_add" ~/.bashrc; then
         echo "$line_to_add" >> ~/.bashrc
         print_success "Автонастройка добавлена в ~/.bashrc"
