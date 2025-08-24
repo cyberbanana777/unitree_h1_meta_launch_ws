@@ -25,6 +25,13 @@ def launch_setup(context, *args, **kwargs):
         'target_action': LaunchConfiguration('target_action'),
     }
     
+    teleoperation_params = {
+        'enable_metrics': LaunchConfiguration('enable_metrics'),
+        'joints_to_check': LaunchConfiguration('joints_to_check'),
+        'max_joint_velocity': LaunchConfiguration('max_joint_velocity'),
+        'ip': LaunchConfiguration('ip'),
+    }
+    
     # Get paths to directory with launch-files
     pkg1_launch_dir = os.path.join(
         get_package_share_directory('completed_scripts_control'),
@@ -52,7 +59,8 @@ def launch_setup(context, *args, **kwargs):
         PythonLaunchDescriptionSource(os.path.join(
             pkg2_launch_dir, 'teleoperation_launch.py'
             )
-        )
+        ),
+        launch_arguments=teleoperation_params.items()
     )
     
     return [control_launch, teleoperation_launch]
@@ -86,6 +94,26 @@ def generate_launch_description():
         choices=['other', 'teleoperation'],
     )
 
+    metrics_arg = DeclareLaunchArgument(
+        "enable_metrics",
+        default_value="False",
+        description="Enable metrics publishing.",
+        choices=['True', 'False'],
+    )
+
+    joints_to_check_arg = DeclareLaunchArgument(
+        "joints_to_check",
+        default_value="12, 13, 14, 15, 23, 31",
+        description="Joints to check. Valided joints must " \
+        "be in range [0, 33], excluding 9.",
+    )
+
+    ip_arg = DeclareLaunchArgument(
+        "ip",
+        default_value="192.168.123.162",
+        description="Ip address for reading data from the UKT",
+    )
+
 
     
     return LaunchDescription([
@@ -93,6 +121,9 @@ def generate_launch_description():
         target_topic_arg,
         max_joint_velocity_arg,
         target_action_arg,
+        metrics_arg,
+        joints_to_check_arg,
+        ip_arg,
 
         OpaqueFunction(function=launch_setup)
     ])
