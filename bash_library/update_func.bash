@@ -74,13 +74,13 @@ process_src_directory() {
     print_status "=== Обработка репозитория: \033[1;33m$(basename "$PWD")\033[0m ==="
     
     # Проверяем, что это git репозиторий
-    if [ ! -d .git ]; then
-        print_warning "Это не git репозиторий, пропускаем"
-        return 0
-    fi
+    #if [ ! -d .git ]; then
+    #    print_warning "Это не git репозиторий, пропускаем"
+    #    return 0
+    #fi
     
     # Выполняем красочный git pull
-    git_pull_with_style    
+    #git_pull_with_style    
 
     cd ..
     rm -r build log install

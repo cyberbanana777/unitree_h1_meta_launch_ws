@@ -41,13 +41,13 @@ git clone https://github.com/cyberbanana777/unitree_h1_meta_launch_ws.git .
 ```bash
 cd ..
 colcon build
-source install/setup.bash  # Или setup.zsh - в зависимости от вашего интерпретатора командной строки
+source install/local_setup.bash  # Или setup.zsh - в зависимости от вашего интерпретатора командной строки
 ```
 3. **В зависимости от цели, которую Вы хотите решить, установите (см. пункт ниже)  необходимые репозитории с помощью bash-скрипта или самомстоятельно по иструкции внутри репозитория**.
 4. Добавить `source` в `~/.bashrc`:
-Зачем? - Чтобы не делать при каждом перезапуске терминала `source install/setup.bash`. Скрипт генерирует строчку для автоматизации этого процесса.
+Зачем? - Чтобы не делать при каждом перезапуске терминала `source install/local_setup.bash`. Скрипт генерирует строчку для автоматизации этого процесса.
 ```bash
-line_to_add="source \"$(pwd)/install/setup.bash\""
+line_to_add="source \"$(pwd)/install/local_setup.bash\""
 grep -qxF "$line_to_add" ~/.bashrc || echo "$line_to_add" >> ~/.bashrc
 ```
 5. **Пример запуска**
