@@ -57,7 +57,7 @@ def launch_setup(context, *args, **kwargs):
     # Teleoperation launch (common for both modes)
     teleoperation_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(
-            pkg2_launch_dir, 'teleoperation_launch.py'
+            pkg2_launch_dir, 'teleoperation.launch.py'
             )
         ),
         launch_arguments=teleoperation_params.items()
@@ -103,7 +103,7 @@ def generate_launch_description():
 
     joints_to_check_arg = DeclareLaunchArgument(
         "joints_to_check",
-        default_value="12, 13, 14, 15, 23, 31",
+        default_value="12, 13, 14, 15, 31, 33",
         description="Joints to check. Valided joints must " \
         "be in range [0, 33], excluding 9.",
     )
