@@ -79,7 +79,7 @@ def generate_launch_description():
 
     max_joint_velocity_arg = DeclareLaunchArgument(
         'max_joint_velocity',
-        default_value='4.0',
+        default_value='0.5',
         description='Maximum joint velocity.',
     )
 
